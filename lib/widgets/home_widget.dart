@@ -1,9 +1,10 @@
-import 'package:explore/widgets/responsive.dart';
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class FeaturedHeading extends StatelessWidget {
-  const FeaturedHeading({
+import 'package:explore/widgets/responsive.dart';
+import 'package:flutter/material.dart';
+
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({
     Key? key,
     required this.screenSize,
   }) : super(key: key);
@@ -12,31 +13,37 @@ class FeaturedHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Stack(
+    return Stack(
       children: [
         Container(
           height: screenSize.height,
         ),
-        ResponsiveWidget.isSmallScreen(context) ? SizedBox() : Positioned(
-          top: 250,
-          child: Transform.rotate(
-            angle: -math.pi / 15,
-            child: Text(
-              'DESIGNER',
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 300,
-                foreground: Paint()
-                  ..style = PaintingStyle.stroke
-                  ..strokeWidth = 1
-                  ..color = Color(0xFF2c2c2c),
+        ResponsiveWidget.isSmallScreen(context)
+            ? SizedBox()
+            : Positioned(
+                top: 250,
+                child: Transform.rotate(
+                  angle: -math.pi / 15,
+                  child: Text(
+                    'DESIGNER',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: ResponsiveWidget.isLargeScreen(context)
+                          ? (220 / 1200) * screenSize.width
+                          : ResponsiveWidget.isMediumScreen(context)
+                              ? (220 / 1000) * screenSize.width
+                              : (220 / 800) * screenSize.width,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 1
+                        ..color = Color(0xFF2c2c2c),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
         Positioned(
-          top: screenSize.height*0.4,
-          left: screenSize.width*0.17,
+          top: screenSize.height * 0.4,
+          left: screenSize.width * 0.17,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -44,41 +51,52 @@ class FeaturedHeading extends StatelessWidget {
                 'I\'m a',
                 style: TextStyle(
                     fontFamily: 'Montserrat',
-                    fontSize: 50,
+                    fontSize: ResponsiveWidget.isLargeScreen(context)
+                        ? (50 / 1200) * screenSize.width
+                        : ResponsiveWidget.isMediumScreen(context)
+                            ? (50 / 1000) * screenSize.width
+                            : (50 / 800) * screenSize.width,
                     color: Color(0xFF484948),
-                    fontWeight: FontWeight.bold
-                ),
+                    fontWeight: FontWeight.bold),
               ),
               Text(
                 'GRAPHIC',
                 style: TextStyle(
                     fontFamily: 'Montserrat',
-                    fontSize: 70,
+                    fontSize: ResponsiveWidget.isLargeScreen(context)
+                        ? (70 / 1200) * screenSize.width
+                        : ResponsiveWidget.isMediumScreen(context)
+                        ? (70 / 1000) * screenSize.width
+                        : (70 / 800) * screenSize.width,
                     color: Colors.white,
-                    fontWeight: FontWeight.bold
-                ),
+                    fontWeight: FontWeight.bold),
               ),
               Text.rich(
                   TextSpan(
-                      text:   'DESIGNER',
-                      style: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontSize: 70,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold
-                      ),children: <InlineSpan>[
+                  text: 'DESIGNER',
+                  style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: ResponsiveWidget.isLargeScreen(context)
+                          ? (70 / 1200) * screenSize.width
+                          : ResponsiveWidget.isMediumScreen(context)
+                              ? (70 / 1000) * screenSize.width
+                              : (70 / 800) * screenSize.width,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                  children: <InlineSpan>[
                     TextSpan(
                       text: '.',
                       style: TextStyle(
                           fontFamily: 'Montserrat',
-                          fontSize: 70,
+                          fontSize: ResponsiveWidget.isLargeScreen(context)
+                              ? (50 / 1200) * screenSize.width
+                              : ResponsiveWidget.isMediumScreen(context)
+                                  ? (50 / 1000) * screenSize.width
+                                  : (50 / 800) * screenSize.width,
                           color: const Color(0xFFf76752),
-                          fontWeight: FontWeight.bold
-                      ),
+                          fontWeight: FontWeight.bold),
                     )
-                  ]
-                  )
-              )
+                  ]))
             ],
           ),
         ),
