@@ -21,7 +21,10 @@ class HomeWidget extends StatelessWidget {
         ResponsiveWidget.isSmallScreen(context)
             ? SizedBox()
             : Positioned(
-                top: 250,
+                top: (ResponsiveWidget.isMediumScreen(context) &&
+                        screenSize.height >= 1300)
+                    ? 450
+                    : 250,
                 child: Transform.rotate(
                   angle: -math.pi / 15,
                   child: Text(
@@ -30,9 +33,7 @@ class HomeWidget extends StatelessWidget {
                       fontFamily: 'Montserrat',
                       fontSize: ResponsiveWidget.isLargeScreen(context)
                           ? (220 / 1200) * screenSize.width
-                          : ResponsiveWidget.isMediumScreen(context)
-                              ? (220 / 1000) * screenSize.width
-                              : (220 / 800) * screenSize.width,
+                          : (220 / 1000) * screenSize.width,
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 1
@@ -66,13 +67,12 @@ class HomeWidget extends StatelessWidget {
                     fontSize: ResponsiveWidget.isLargeScreen(context)
                         ? (70 / 1200) * screenSize.width
                         : ResponsiveWidget.isMediumScreen(context)
-                        ? (70 / 1000) * screenSize.width
-                        : (70 / 800) * screenSize.width,
+                            ? (70 / 1000) * screenSize.width
+                            : (70 / 800) * screenSize.width,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
-              Text.rich(
-                  TextSpan(
+              Text.rich(TextSpan(
                   text: 'DESIGNER',
                   style: TextStyle(
                       fontFamily: 'Montserrat',

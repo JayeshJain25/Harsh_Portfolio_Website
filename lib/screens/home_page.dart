@@ -2,6 +2,7 @@ import 'package:explore/widgets/about_widget.dart';
 import 'package:explore/widgets/explore_drawer.dart';
 import 'package:explore/widgets/home_widget.dart';
 import 'package:explore/widgets/responsive.dart';
+import 'package:explore/widgets/skill_widget.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:flutter/material.dart';
@@ -70,8 +71,15 @@ class _HomePageState extends State<HomePage> {
           physics: ClampingScrollPhysics(),
           child: Column(
             children: [
-              HomeWidget( screenSize: screenSize,),
-              AboutWidget(screenSize : screenSize),
+              HomeWidget(
+                screenSize: screenSize,
+              ),
+              AboutWidget(
+                screenSize: screenSize,
+              ),
+              SkillWidget(
+                screenSize: screenSize,
+              )
             ],
           ),
         ),

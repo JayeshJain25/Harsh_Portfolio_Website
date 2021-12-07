@@ -30,7 +30,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
-        height: screenSize.height*0.13,
+        height: screenSize.height * 0.13,
         color: Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
         child: Padding(
           padding: EdgeInsets.all(20),
@@ -70,7 +70,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'HOME',
                             style: TextStyle(
                               color: _isHovering[0]
-                                  ? const Color(0xFFf76752)
+                                  ? const Color(0xff3cbc88)
                                   : Colors.white,
                             ),
                           ),
@@ -107,7 +107,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'ABOUT ME',
                             style: TextStyle(
                               color: _isHovering[1]
-                                  ? const Color(0xFFf76752)
+                                  ? const Color(0xff3cbc88)
                                   : Colors.white,
                             ),
                           ),
@@ -144,7 +144,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'SKILLS',
                             style: TextStyle(
                               color: _isHovering[2]
-                                  ? const Color(0xFFf76752)
+                                  ? const Color(0xff3cbc88)
                                   : Colors.white,
                             ),
                           ),
@@ -181,7 +181,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'PORTFOLIO',
                             style: TextStyle(
                               color: _isHovering[3]
-                                  ? const Color(0xFFf76752)
+                                  ? const Color(0xff3cbc88)
                                   : Colors.white,
                             ),
                           ),
@@ -218,7 +218,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'SERVICES',
                             style: TextStyle(
                               color: _isHovering[4]
-                                  ? const Color(0xFFf76752)
+                                  ? const Color(0xff3cbc88)
                                   : Colors.white,
                             ),
                           ),
@@ -255,7 +255,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'CONTACT',
                             style: TextStyle(
                               color: _isHovering[5]
-                                  ? const Color(0xFFf76752)
+                                  ? const Color(0xff3cbc88)
                                   : Colors.white,
                             ),
                           ),
