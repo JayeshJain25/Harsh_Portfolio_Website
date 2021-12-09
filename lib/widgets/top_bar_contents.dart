@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class TopBarContents extends StatefulWidget {
   final double opacity;
-
-  TopBarContents(this.opacity);
+  final List<GlobalKey> keys;
+  TopBarContents(this.opacity, this.keys);
 
   @override
   _TopBarContentsState createState() => _TopBarContentsState();
@@ -16,12 +16,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     false,
     false,
     false,
-    false,
-    false,
-    false
   ];
-
-  bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +25,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
-        height: screenSize.height * 0.13,
+        height: screenSize.height * 0.1,
         color: Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
         child: Padding(
           padding: EdgeInsets.all(20),
@@ -62,7 +57,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[0] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Scrollable.ensureVisible(
+                          widget.keys[0].currentContext!,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -99,7 +100,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[1] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Scrollable.ensureVisible(
+                          widget.keys[1].currentContext!,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -136,7 +143,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[2] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Scrollable.ensureVisible(
+                          widget.keys[2].currentContext!,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -173,7 +186,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[3] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Scrollable.ensureVisible(
+                          widget.keys[3].currentContext!,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -210,12 +229,18 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[4] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Scrollable.ensureVisible(
+                          widget.keys[4].currentContext!,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'SERVICES',
+                            'CONTACT',
                             style: TextStyle(
                               color: _isHovering[4]
                                   ? const Color(0xff3cbc88)
@@ -228,43 +253,6 @@ class _TopBarContentsState extends State<TopBarContents> {
                             maintainState: true,
                             maintainSize: true,
                             visible: _isHovering[4],
-                            child: Container(
-                              height: 2,
-                              width: 20,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenSize.width / 30),
-                    InkWell(
-                      hoverColor: Colors.transparent,
-                      onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[5] = true
-                              : _isHovering[5] = false;
-                        });
-                      },
-                      onTap: () {},
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'CONTACT',
-                            style: TextStyle(
-                              color: _isHovering[5]
-                                  ? const Color(0xff3cbc88)
-                                  : Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Visibility(
-                            maintainAnimation: true,
-                            maintainState: true,
-                            maintainSize: true,
-                            visible: _isHovering[5],
                             child: Container(
                               height: 2,
                               width: 20,

@@ -1,6 +1,8 @@
 import 'package:explore/widgets/about_widget.dart';
+import 'package:explore/widgets/bottom_bar_contents.dart';
 import 'package:explore/widgets/explore_drawer.dart';
 import 'package:explore/widgets/home_widget.dart';
+import 'package:explore/widgets/portfolio_widget.dart';
 import 'package:explore/widgets/responsive.dart';
 import 'package:explore/widgets/skill_widget.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
@@ -18,6 +20,11 @@ class _HomePageState extends State<HomePage> {
   late ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
+  GlobalKey key = GlobalKey();
+  GlobalKey key2 = GlobalKey();
+  GlobalKey key3 = GlobalKey();
+  GlobalKey key4 = GlobalKey();
+  GlobalKey key5 = GlobalKey();
 
   _scrollListener() {
     setState(() {
@@ -34,6 +41,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    List<GlobalKey<State<StatefulWidget>>> listKey = [
+      key,
+      key2,
+      key3,
+      key4,
+      key5
+    ];
     var screenSize = MediaQuery.of(context).size;
     _opacity = _scrollPosition < screenSize.height * 0.40
         ? _scrollPosition / (screenSize.height * 0.40)
@@ -61,9 +75,9 @@ class _HomePageState extends State<HomePage> {
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),
-              child: TopBarContents(_opacity),
+              child: TopBarContents(_opacity, listKey),
             ),
-      drawer: ExploreDrawer(),
+      drawer: ExploreDrawer(listKey),
       body: WebScrollbar(
         controller: _scrollController,
         child: SingleChildScrollView(
@@ -73,13 +87,21 @@ class _HomePageState extends State<HomePage> {
             children: [
               HomeWidget(
                 screenSize: screenSize,
+                key: key,
               ),
               AboutWidget(
                 screenSize: screenSize,
+                key: key2,
               ),
-              SkillWidget(
+              SkillWidget(screenSize: screenSize, key: key3),
+              PortfolioWidget(
                 screenSize: screenSize,
-              )
+                key: key4,
+              ),
+              BottomBarContents(
+                screenSize: screenSize,
+                key: key5,
+              ),
             ],
           ),
         ),

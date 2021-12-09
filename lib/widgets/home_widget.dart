@@ -93,7 +93,7 @@ class HomeWidget extends StatelessWidget {
                               : ResponsiveWidget.isMediumScreen(context)
                                   ? (50 / 1000) * screenSize.width
                                   : (50 / 800) * screenSize.width,
-                          color: const Color(0xFFf76752),
+                          color: const Color(0xff3cbc88),
                           fontWeight: FontWeight.bold),
                     )
                   ]))
